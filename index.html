@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ролі гравців сервера UKRAINE RP</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        
+        html, body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.377), rgba(0, 0, 0, 0.5)), url('логол.png') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    min-height: 100%;
+    background-size: cover;
+    background-attachment: fixed; /* Фіксує фон при прокручуванні */
+}
+        
+        .container {
+            width: 60%;
+            margin: auto;
+            padding: 20px;
+            background: #1e1e1e;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        h1, h2 {
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .category {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 20px;
+            text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .role {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .role.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .role strong {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .role a {
+            text-decoration: none;
+            color: #ffcc00;
+            font-weight: bold;
+        }
+
+        .Адміністрація { background-color: #4682b4; }
+        .Суд { background-color: #deb40aed; }
+        .МВС { background-color: #8a2be2; }
+        .СБС { background-color: #0069b9; }
+        .ДБР { background-color: #b6680a; }
+        .Інше { background-color: #808080; }
+
+        .role:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s;
+        }
+
+        .social-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .social-buttons a {
+            padding: 10px 15px;
+            background-color: #444;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        .social-buttons a:hover {
+            background-color: #666;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background: #222;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="social-buttons">
+        <!-- Кнопки з повними назвами -->
+        <a href="https://giknikyev.github.io/serverrules/" target="_blank">Правила сервера</a>
+        <a href="https://x.com/UkraineRP_EH" target="_blank">Twitter</a>
+        <a href="https://t.me/+vGSTB2xTvp83Yjc0" target="_blank">Telegram</a>
+    </div>
+
+    <div class="container">
+        <h1>UKRAINE RP</h1>
+        <h2>Ролі гравців сервера</h2>
+        <div id="rolesContainer"></div>
+    </div>
+
+    <footer>
+        &copy; 2025 UKRAINE RP. Усі права захищені.
+    </footer>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const players = {
+                "nikyev_Off": { role: "Засновник сервера", telegram: "t.me/ukreh_admin", category: "Адміністрація" },
+                "Zoomsos123": { role: "Адмін сервера", telegram: "t.me/Xmm_help", category: "Адміністрація" },
+                "bodja150510": { role: "Адмін сервера", telegram: "t.me/marsqwrty0", category: "Адміністрація" },
+                "Yezh1lya": { role: "Адмін сервера", telegram: "t.me/True_Japanese_Samurai", category: "Адміністрація" },
+                "K_PoPlove9473": { role: "Адмін сервера", telegram: "t.me/aeriwam", category: "Адміністрація" },
+                "Ilua787876": { role: "Адмін сервера", telegram: "t.me/uomdck", category: "Адміністрація" },
+                "XxHA7AxX": { role: "Головний Суддя", telegram: "t.me/Na7atelega", category: "Суд" },
+                "SMAXS1313": { role: "Суддя", telegram: "t.me/SaulGoodmanJimmyMC", category: "Суд" },
+                "olegh34": { role: "Суддя", telegram: "t.me/olegh34", category: "Суд" },
+                "Pit_uk": { role: "Охоронець", telegram: "7811050819", category: "Суд" },
+                "Kurdzhos999": { role: "Охоронець", telegram: "t.me/vanya_kurdzhos", category: "Суд" },
+                "bratsmola": { role: "Міністр МВС", telegram: "t.me/rin_mew", category: "МВС" },
+                "nazar1cyber2sportman": { role: "Голова СБС", telegram: "t.me/NazSkil", category: "СБС" },
+                "Cekci_mojito": { role: "Працівник СБС", telegram: "7729164856", category: "СБС" },
+                "Kedvirm": { role: "Працівник СБС", telegram: "7811987070", category: "СБС" },
+                "KRAM_Militarust": { role: "Працівник СБС", telegram: "1768839743", category: "СБС" },
+                "Yhorkorotkevych": { role: "Працівник СБС", telegram: "6717520067", category: "СБС" },
+                "CAXAPOK_5685rb": { role: "Працівник СБС", telegram: "7672435136", category: "СБС" },
+                "Pushka2030": { role: "Працівник СБС", telegram: "5549609551", category: "СБС" },
+                "sushunyaboy": { role: "Працівник СБС", telegram: "5567428453", category: "СБС" },
+                "MAXIM4IK123098": { role: "Директор ДБР", telegram: "6053516349", category: "ДБР" },
+                "kingfogfok": { role: "Заступник Директора ДБР", telegram: "t.me/lllCasino", category: "ДБР" },
+                "global20207": { role: "Працівник ДБР", telegram: "1431122546", category: "ДБР" },
+                "nsx1987": { role: "Працівник ДБР", telegram: "563810354", category: "ДБР" },
+                "artemMelnichenko2013": { role: "Працівник ДБР", telegram: "5242336088", category: "ДБР" },
+                "kakashkavurybashkaa": { role: "Працівник ДБР", telegram: "5249364290", category: "ДБР" },
+                "Zeon_18": { role: "Працівник ДБР", telegram: "6429372531", category: "ДБР" },
+                "gggiiky83": { role: "Працівник ДБР", telegram: "6202700499", category: "ДБР" },
+                "w0ndexq": { role: "Працівник ДБР", telegram: "6684510288", category: "ДБР" },
+                "smol591": { role: "Менеджер сервера", telegram: "t.me/smolstvol", category: "Інше" },
+                "kartoffel_2288": { role: "Психолог", telegram: "t.me/usraze", category: "Інше" }
+            };
+            
+            const rolesContainer = document.getElementById("rolesContainer");
+
+for (const [player, data] of Object.entries(players)) {
+    let categoryDiv = document.querySelector(`.category.${data.category}`);
+    if (!categoryDiv) {
+        categoryDiv = document.createElement("div");
+        categoryDiv.classList.add("category", data.category);
+        categoryDiv.innerHTML = `<h3>${data.category}</h3>`;
+        rolesContainer.appendChild(categoryDiv);
+    }
+
+    const roleDiv = document.createElement("div");
+    roleDiv.classList.add("role");
+
+    let telegramLink;
+    if (data.telegram.startsWith('t.me/')) {
+        telegramLink = `https://${data.telegram}`;  
+    } else {
+        telegramLink = `tg://openmessage?user_id=${data.telegram}`;
+    }
+
+    roleDiv.innerHTML = `<strong>${data.role}</strong><br>Username: ${player}<br>Telegram: <a href="${telegramLink}" target="_blank">${data.telegram}</a>`;
+    categoryDiv.appendChild(roleDiv);
+
+    setTimeout(() => roleDiv.classList.add("show"), 200);
+}
+});
+</script>
+</body>
+</html>
