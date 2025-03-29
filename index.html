@@ -71,12 +71,18 @@
         }
 
         .Адміністрація { background-color: #4682b4; }
-        .Суд { background-color: #deb40aed; }
+        .Суд { background-color: #e6b513; }
         .МВС { background-color: #8a2be2; }
         .СБС { background-color: #0069b9; }
         .ДБР { background-color: #b6680a; }
+        .Медіа { background-color: #208520; }
         .Інше { background-color: #808080; }
 
+    
+        .Суд a {
+    color: #ffcc00; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.488);
+}
         .role:hover {
             transform: scale(1.05);
             transition: transform 0.3s;
@@ -203,9 +209,11 @@
                 "tsena647a": { role: "Працівник ДБР", telegram: "7082897135", category: "ДБР" },
                 "Rechs10": { role: "Працівник ДБР", telegram: "6387100458", category: "ДБР" },
                 "LowSkillEnder": { role: "Працівник ДБР", telegram: "637760273", category: "ДБР" },
+                "username1": { role: "Журналіст", telegram: "t.me/mr_viz1", category: "Медіа" },
+                "username2": { role: "Журналістка", telegram: "t.me/simkauaaa", category: "Медіа" },
                 "smol591": { role: "Менеджер сервера", telegram: "t.me/smolstvol", category: "Інше" },
-                "kartoffel_2288": { role: "Психолог", telegram: "t.me/usraze", category: "Інше" }
-            };
+                "kartoffel_2288": { role: "Психолог", telegram: "t.me/usraze", category: "Інше" },
+            }; 
             
             const rolesContainer = document.getElementById("rolesContainer");
 
